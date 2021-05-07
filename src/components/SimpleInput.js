@@ -23,9 +23,12 @@ const SimpleInput = (props) => {
     setEnteredName('');
   };
 
+  //manage the css for invalid input
+  const nameInputClasses = validEnteredName ? 'form-control' : 'form-control invalid';
+
   return (
     <form onSubmit={formSubmitHandler}>
-      <div className='form-control'>
+      <div className={nameInputClasses}>
         <label htmlFor='name'>Your Name</label>
         <input type='text' id='name' value={enteredName} onChange={nameInputChangeHandler}/>
         {!validEnteredName && <p className={'error-text'}>Name must not be empty!</p>}
